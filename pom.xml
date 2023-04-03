@@ -63,6 +63,14 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -93,6 +101,12 @@
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>2.4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.1.214</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
     <build>
@@ -135,8 +149,8 @@
                     <version>2.8.2</version>
                 </plugin>
                 <!--tomcat plugin-->
-                <!--                 to start from terminal:   mvn clean     mvn tomcat7:run-war-->
-                <!--                to stop from terminal: ctrl + c-->
+                <!--to start from terminal:   mvn clean     mvn tomcat7:run-war-->
+                <!--to stop from terminal: ctrl + c-->
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>

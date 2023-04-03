@@ -14,7 +14,7 @@ import java.util.List;
 public class TagDAO {
     private final JdbcTemplate jdbcTemplate;
 
-    public List<Tag> index() {
+    public List<Tag> getAll() {
         return jdbcTemplate.query("SELECT * FROM tag", new BeanPropertyRowMapper<>(Tag.class));
     }
 
@@ -24,7 +24,7 @@ public class TagDAO {
     }
 
     public void create(Tag tag) {
-        jdbcTemplate.update("INSERT INTO tag VALUES(?, ?)", 0, tag.getName());
+        jdbcTemplate.update("INSERT INTO tag (`name`) VALUES(?)", tag.getName());
     }
 
     public void delete(int id) {

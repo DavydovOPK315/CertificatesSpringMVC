@@ -45,7 +45,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      *
      * @return return ResponseEntity with custom message, http headers and http status
      */
-    @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+    @ExceptionHandler({SQLIntegrityConstraintViolationException.class, NullPointerException.class})
     public ResponseEntity<CustomMessage> handleSQLIntegrityConstraintViolationException() {
         CustomMessage customMessage = new CustomMessage();
         customMessage.setErrorMessage("Not Acceptable due to wrong action or data");

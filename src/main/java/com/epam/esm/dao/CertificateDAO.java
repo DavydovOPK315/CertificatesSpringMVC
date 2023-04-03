@@ -14,7 +14,7 @@ public class CertificateDAO {
     private final JdbcTemplate jdbcTemplate;
 
     public void create(Certificate certificate) {
-        jdbcTemplate.update("INSERT INTO gift_certificates VALUES(?, ?, ?, ?, ?, ?, ?)", 0,
+        jdbcTemplate.update("INSERT INTO gift_certificates (`name`, `description`, `price`, `duration`, `create_date`, `last_update_date`) VALUES(?, ?, ?, ?, ?, ?)",
                 certificate.getName(),
                 certificate.getDescription(),
                 certificate.getPrice(),
@@ -25,12 +25,16 @@ public class CertificateDAO {
 
     public Certificate getByName(String name) {
         return jdbcTemplate.query("SELECT * FROM gift_certificates WHERE name=?", new Object[]{name}, new BeanPropertyRowMapper<>(Certificate.class))
-                .stream().findAny().orElse(null);
+                .stream()
+                .findAny()
+                .orElse(null);
     }
 
     public Certificate getById(int id) {
         return jdbcTemplate.query("SELECT * FROM gift_certificates WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Certificate.class))
-                .stream().findAny().orElse(null);
+                .stream()
+                .findAny()
+                .orElse(null);
     }
 
     public void update(Certificate certificate) {
